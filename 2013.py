@@ -29,19 +29,34 @@ class DetectSquares:
 
             if isValidCorner:
 
-                print("YAY")
+                self.getRemainingPoints(eachPoint, pointTuple)
         
     def validSquareCorner(self, existingPoint, pointToCheck) -> bool:
 
         dx = abs(existingPoint[0] - pointToCheck[0])
         dy = abs(existingPoint[1] - pointToCheck[1])
 
-        if dx == dy:
+        if dx == dy and dx != 0 and dy != 0:
             return True
         
         return False
 
+    def getRemainingPoints(point1, point2):
 
+        newXPoint = (-1,-1)
+        newYPoint = (-1,-1)
+        if point1[0] > point2[0]:
+            newXPoint = (point1[0], point2[1])
+        else:
+            newXPoint = (point2[0], point1[1])
+
+        if point1[1] > point2[1]:
+            print("inc p2 y")
+        else:
+            print("inc p1 y")
+
+
+        return newXPoint, newYPoint
 # Your DetectSquares object will be instantiated and called as such:
 
 point = (1,2)
